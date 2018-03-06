@@ -16,9 +16,9 @@ class DishesTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        foreach (range(1, 2) as $x) {
+        foreach (range(1, 10) as $x) {
             $url = $faker->image('/home/vagrant/Code/proRestaurant/public/tmp', 800, 600, 'food');
-            $url = str_replace('/home/vagrant/Code/proRestaurant/public/', '', $url);
+            $url = str_replace('/home/vagrant/Code/proRestaurant/public', '', $url);
 
             $dish = new Dish();
             $dish->title = $faker->name;

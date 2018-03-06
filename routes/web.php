@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
+// Dish routes
+// sukuria 7 routus, kuriuos galime panaudoti kuriant CRUD'a
+Route::resource('dishes', 'DishController');
+
+
+
+
+
+
+
+
+
+
+Auth::routes();

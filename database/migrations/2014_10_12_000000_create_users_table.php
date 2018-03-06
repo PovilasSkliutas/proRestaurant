@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('country');
             $table->rememberToken();
             $table->timestamps();
-            $table->string('role');
+            $table->string('role')->default('guest');
         });
     }
 

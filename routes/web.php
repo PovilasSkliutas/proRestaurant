@@ -13,17 +13,15 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
+
 // Dish routes
 // sukuria 7 routus, kuriuos galime panaudoti kuriant CRUD'a
 Route::resource('dishes', 'DishController');
-
-
-
-
-
-
-
-
-
+// Reservation routes
+// sukuria 7 routus, kuriuos galime panaudoti kuriant CRUD'a
+Route::resource('reservations', 'ReservationController');
+// Orders routes
+// sukuria 7 routus, kuriuos galime panaudoti kuriant CRUD'a
+Route::resource('orders', 'OrderController');
 
 Auth::routes();

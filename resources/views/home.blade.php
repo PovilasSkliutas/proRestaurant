@@ -4,10 +4,10 @@
 <div class="container">
 
     {{-- @if(Auth::user()) --}}
-    @auth
+    @if(Auth::check() && Auth::user()->role == 'admin') {{-- tikrina ar vartotojas prisjunges ir kokia jo role --}}
     <div class="row justify-content-end">
       <div class="col-md-4">
-        <a href="#" class="btn btn-success btn-block">Create</a>
+        <a href="{{ route('dishes.create') }}" class="btn btn-success btn-block">Create new Dish</a>
         <hr>
       </div>
     </div>
@@ -15,9 +15,9 @@
 
     <div class="row justify-content-center">
       @foreach ($dishes as $dish)
-        <div class="col-md-4 card-deck">
+        <div class="col-md-4" style="margin-bottom: 1.5rem;">
           @component('components/card', ['dish' => $dish,
-                                         'admin' => FALSE]) <!-- komponento nustatymas -->
+                                         'admin' => TRUE]) <!-- komponento nustatymas -->
           @endcomponent
         </div>
       @endforeach

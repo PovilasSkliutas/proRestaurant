@@ -13,7 +13,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        echo "orders index working! woop woop!";
     }
 
     /**

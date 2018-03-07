@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Reservation;
 
 class ReservationController extends Controller
 {
@@ -13,7 +14,9 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        //echo "reservation index working! woop woop!";
+        $reservations = Reservation::orderBy('id', 'desc')->get();
+        return view('reservation/index', ['reservations' => $reservations]);
     }
 
     /**

@@ -20,8 +20,8 @@ class ReservationsTableSeeder extends Seeder
             $reservation->name = $faker->name;
             $reservation->people_amount = rand(1, 10);
             $reservation->date = $faker->date($format = 'Y-m-d', $max = 'now');
-            $reservation->time = $faker->time($format = 'H:i:s', $max = 'now');
-            $reservation->phone = $faker->phoneNumber;
+            $reservation->time = $faker->time($format = 'H:i', $max = 'now');
+            $reservation->phone = $faker->tollFreePhoneNumber;
             $reservation->user_id = $x;
             $reservation->save();
         }

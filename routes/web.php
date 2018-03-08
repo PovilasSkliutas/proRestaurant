@@ -23,5 +23,10 @@ Route::resource('reservations', 'ReservationController');
 // Orders routes
 // sukuria 7 routus, kuriuos galime panaudoti kuriant CRUD'a
 Route::resource('orders', 'OrderController');
+// Cart routes
+// sukuria 7 routus, kuriuos galime panaudoti kuriant CRUD'a
+Route::resource('cart_items', 'Cart_ItemsController');
+
+
 
 Auth::routes();

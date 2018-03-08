@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    // savybes pridejimas prie modelio
+    // kuri galima pasiimti vaizde arba kontroleryje
+
     // metdodas turi buti kaip lenteles pavadinimas
-    public function orders() {
-      // sukuria sasaja su Order modeliu
-      return $this->hasOne('App\Order');
+    public function user() {
+      // sukuria sasaja su user modeliu
+      return $this->hasOne('App\User', 'id', 'user_id');
     }
 }

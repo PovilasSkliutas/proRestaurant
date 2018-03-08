@@ -38,8 +38,8 @@
                             <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li><a class="nav-link" href="#">Reservations</a></li>
-                            <li><a class="nav-link" href="#">Orders</a></li>
+                            <li><a class="nav-link" href="{{ route('reservations.index') }}">Reservations</a></li>
+                            <li><a class="nav-link" href="{{ route('orders.index') }}">Orders</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -59,7 +59,7 @@
                             </li>
                         @endguest
                             <li>
-                                <a class="nav-link" href="#">Cart</a>
+                                <a class="nav-link" href="{{ route('cart_items.index') }}">Cart({{ Cart::count() }})</a>
                             </li>
                     </ul>
                 </div>

@@ -7,7 +7,7 @@
     @auth
     <div class="row justify-content-end">
         <div class="col-md-3">
-            <a href="#" class="btn btn-success btn-block">Create</a>
+            <a href="{{ route('reservations.create') }}" class="btn btn-success btn-block">Create</a>
             <hr>
       </div>
     </div>
@@ -37,17 +37,17 @@
               <th class="text-center">{{ $reservation->id }}</th>
               <td class="text-center font-weight-bold">{{ $reservation->name }}</td>
               <td class="text-center">{{ $reservation->people_amount }}</td>
-              <td class="text-center">{{ $reservation->date }}{{ $reservation->time }}</td>
+              <td class="text-center">{{ $reservation->date }} {{ $reservation->time }}</td>
               <td class="text-center">{{ $reservation->phone }}</td>
               <td class="text-center">{{ $reservation->created_at }}</td>
               <td class="text-center">{{ $reservation->updated_at }}</td>
               {{-- @if(Auth::user()) --}}
               @auth
               <td class="text-center">
-                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{{ route('reservations.edit', $reservation->id) }}" class="btn btn-warning btn-sm">Edit</a>
               </td>
               <td class="text-center">
-                <form action="#" method="POST">
+                <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST">
                   @csrf
                   {{ method_field('DELETE') }}
                   <button type="submit" class="btn btn-danger btn-sm">Delete</button>

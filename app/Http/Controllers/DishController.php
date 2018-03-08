@@ -27,10 +27,10 @@ class DishController extends Controller
     public function validation(Request $request) {
       // apsirasome validacija
       $request->validate([
-        'title' => 'required|max:300',
+        'title'       => 'required|max:300',
         'description' => 'required|max:1000',
-        'image' => 'required|max:300',
-        'price' => 'required|numeric'
+        'image'       => 'required|max:300',
+        'price'       => 'required|numeric'
       ]);
     }
 

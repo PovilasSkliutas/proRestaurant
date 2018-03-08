@@ -40,7 +40,7 @@ class UsersTableSeeder extends Seeder
             $user->city = $faker->city;
             $user->zipcode = $faker->postcode;
             $user->country = $faker->country;
-            $user->role = 'simple';
+            $user->role = 'user';
             $user->save();
         }
     }

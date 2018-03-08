@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
+use App\User;
 
 class OrderController extends Controller
 {
@@ -13,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        echo "orders index working! woop woop!";
+        //echo "orders index working! woop woop!";
+        $orders = Order::orderBy('id', 'desc')->get();
+        return view('order/index', ['orders' => $orders]);
     }
 
     /**

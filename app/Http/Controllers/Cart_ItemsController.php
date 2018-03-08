@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Cart_Items;
 
 class Cart_ItemsController extends Controller
 {
@@ -13,7 +14,7 @@ class Cart_ItemsController extends Controller
      */
     public function index()
     {
-        //
+        echo "cart index working! woop woop!";
     }
 
     /**

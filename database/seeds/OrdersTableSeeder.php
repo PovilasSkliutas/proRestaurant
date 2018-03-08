@@ -19,7 +19,7 @@ class OrdersTableSeeder extends Seeder
              $order = new Order();
              $order->user_id = rand(1, 10);
              $order->total_amount = $faker->randomFloat(2, 5, 95);
-             $order->tax_amount = $faker->randomFloat(2, 5, 95);
+             $order->tax_amount = $order->total_amount*0.21;
              $order->save();
          }
      }

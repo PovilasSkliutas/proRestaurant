@@ -15,11 +15,11 @@ class CreateCartItemsTable extends Migration
     {
         Schema::create('cart_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('token');
-            $table->integer('user_id')->unsigned();
+            $table->string('token')->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->integer('dish_id')->unsigned();
             $table->timestamps();
-            $table->integer('order_id')->unsigned();
+            $table->integer('order_id')->unsigned()->nullable();
         });
     }
 

@@ -71,7 +71,7 @@ class DishController extends Controller
         $dish->save();
 
         //po issaugojimo nukreipiame i dish'o puslapi
-        return redirect()->route('dishes.show', ['dish' => $dish]);
+        return redirect()->route('home');
     }
 
     // Apsirašome metodą SHOW, parodyti viena dish'a

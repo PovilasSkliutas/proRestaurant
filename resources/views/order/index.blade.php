@@ -27,8 +27,8 @@
             <tr>
               <th class="text-center">{{ $order->id }}</th>
               <td class="text-center">Orders</td>
-              <td class="text-center">{{ $order->users->name}} {{ $order->users->surname}}</td>
-              <td class="text-center">{{ $order->users->address }}</td>
+              <td class="text-center">{{ $order->user->name }} {{ $order->user->surname }}</td>
+              <td class="text-center">{{ $order->user->address }}</td>
               <td class="text-center">{{ $order->total_amount }}</td>
               <td class="text-center">{{ $order->tax_amount }}</td>
               <td class="text-center">{{ $order->created_at }}</td>

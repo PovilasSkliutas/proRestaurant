@@ -19,7 +19,7 @@ class ReservationController extends Controller
             $reservations = Reservation::orderBy('id', 'desc')->get();
             return view('reservation/index', ['reservations' => $reservations]);
         } else {
-            $reservations = Reservation::orderBy('user_id', 'desc')->get();
+            $reservations = Reservation::orderBy('id', 'desc')->get();
             return view('reservation/index', ['reservations' => $reservations]);
         }
 

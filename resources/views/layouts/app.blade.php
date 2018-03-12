@@ -58,8 +58,11 @@
                                 </div>
                             </li>
                         @endguest
-                            <li>
-                                <a class="nav-link" href="{{ route('cart_items.index') }}">Cart({{ Cart::count() }})</a>
+                            <li id="cart">
+                                <a class="nav-link" href="{{ route('cart_items.index') }}">
+                                Cart (<span class="cart-size">{{ Cart::count() }}</span>) -
+                                      <span class="cart-total">{{ Cart::total() }}</span>$
+                                </a>
                             </li>
                     </ul>
                 </div>
@@ -73,5 +76,46 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <!-- carto scriptas -->
+    <script type="text/javascript">
+        // DOMContentLoaded
+        $(document).ready(function() {
+            // uzdedame "submit" ivyki ant formos
+            $('.js-cart-form').on('submit', function(event) {
+                // alert('on submit ivyko');
+                event.preventDefault();
+
+                // ajax uzklausa
+                $.ajax({
+                    method: "POST",
+                    url: $(this).attr('action'), // Paima 'šitos' formos atributą "action"
+                    data: $(this).serialize(), // Paima 'šitos' formos elementų reikšmes ir sudeda į vieną eilutę
+                    success: function(data) {
+                        //alert("data saved: " + data);
+                        let parsedData = $.parseJSON(data), // Paverčia JSON eilutę į JS objektą
+                            cartSize = parseFloat($('#cart .cart-size').text()), // converts string to number
+                            cartTotal = parseFloat($('#cart .cart-total').text().replace(',', '')); // converts string to number
+
+                        cartSize = cartSize + 1;
+                        cartTotal = cartTotal + parsedData.dish.price;
+
+                        $('#cart .cart-size').text(cartSize); // Changes the text for cart-size
+                        $('#cart .cart-total').text(cartTotal.toLocaleString('en-GB', { minimumFractionDigits: 2 })); // Changes the text for cart-total
+
+                        let alert = $('<div class="alert alert-success sticky-top" role="alert">');
+                              alert.html('Succesfully added one <strong>' + parsedData.dish.title + "</strong>, which price is " + parsedData.dish.price + '$');
+
+                              alert.hide();
+                            $('main .alert').fadeOut();
+                            $('main').prepend(alert.fadeIn());
+
+                    },
+                    error: function(msg) {
+                        alert("data saved: " + data);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

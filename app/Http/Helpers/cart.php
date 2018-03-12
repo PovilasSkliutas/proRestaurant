@@ -17,11 +17,15 @@
         public static function total() {
 
             $token = csrf_token();
-            $count = Cart_Items::where('token', $token)->whereNull('order_id')->get();
+            $items = Cart_Items::where('token', $token)->whereNull('order_id')->get();
+            $total = 0;
 
             //var_dump($items[0]->dish->price);
             /* reikia foreach - suskaiciuoti total price */
-
+            foreach ($items as $item) {
+                $total = $total + $item->dish->price;
+            }
+            return number_format($total, 2);
         }
 
     }

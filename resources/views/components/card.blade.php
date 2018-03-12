@@ -10,10 +10,17 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-md-6">
-                    <h5 style="margin-top: 0.5rem;">Price: {{$dish->price}}</h5>
+                    <h5 style="margin-top: 0.5rem;">Price: {{ number_format($dish->price, 2) }}</h5>
                 </div>
                 <div class="col-md-6">
-                      <a href="#" class="btn btn-info btn-block">Add to cart</a>
+                    <form action="{{ route('cart_items.store') }}" method="POST" class="js-cart-form form-inline">
+                        {{ csrf_field() }}
+                        <input
+                       	type="hidden"
+                       	    name="dish_id"
+                      	 value="{{ $dish->id }}">
+                        <button type="submit" class="btn btn-info btn-block">Add to cart</button>
+                    </form>
                 </div>
             </div>
         </li>

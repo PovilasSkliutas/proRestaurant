@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cart_Items extends Model
 {
-
     protected $table = 'cart_items';
 
     public function dish() {

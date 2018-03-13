@@ -14,4 +14,8 @@ class Order extends Model
       // sukuria sasaja su user modeliu
       return $this->hasOne('App\User', 'id', 'user_id');
     }
+
+    public function carts() {
+        return $this->hasMany('App\Cart_Items', 'order_id', 'id');
+    }
 }

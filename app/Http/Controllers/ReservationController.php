@@ -17,12 +17,10 @@ class ReservationController extends Controller
         // Pasirašome if'a, kad kiekvienas vartotojas matytų tik savo rezervacijas, o adminas visas
         if (Auth::check() && Auth::user()->role == 'admin') {
             $reservations = Reservation::orderBy('id', 'desc')->get();
-            return view('reservation/index', ['reservations' => $reservations]);
         } else {
-            $reservations = Reservation::orderBy('id', 'desc')->get();
-            return view('reservation/index', ['reservations' => $reservations]);
+            $reservations = Reservation::where('user_id', Auth::user()->id)->get();
         }
-
+        return view('reservation/index', ['reservations' => $reservations]);
     }
 
     // Apsirašome metodą CREATE

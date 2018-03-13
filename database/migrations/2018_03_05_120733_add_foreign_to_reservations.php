@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddForeignToReservations extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::table('reservations', function (Blueprint $table) {
@@ -20,11 +16,6 @@ class AddForeignToReservations extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::table('reservations', function (Blueprint $table) {

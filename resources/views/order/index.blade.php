@@ -26,7 +26,13 @@
             @foreach ($orders as $order)
             <tr>
               <th class="text-center">{{ $order->id }}</th>
-              <td class="text-center">Orders</td>
+              <td class="">
+
+                  @foreach ($order->carts as $cart)
+                    <li>{{ $cart->dish->title }}</li>
+                  @endforeach
+
+              </td>
               <td class="text-center">{{ $order->user->name }} {{ $order->user->surname }}</td>
               <td class="text-center">{{ $order->user->address }}</td>
               <td class="text-center">{{ $order->total_amount }}</td>
@@ -35,7 +41,7 @@
               {{-- @if(Auth::user()) --}}
               @auth
               <td class="text-center">
-                <form action="#" method="POST">
+                <form action="{{ route('orders.destroy', $order->id) }}" method="POST">
                   @csrf
                   {{ method_field('DELETE') }}
                   <button type="submit" class="btn btn-danger btn-sm">Cancel</button>

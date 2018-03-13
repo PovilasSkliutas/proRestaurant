@@ -28,5 +28,10 @@
             return number_format($total, 2);
         }
 
+        public static function vat($cartTotal) {
+            $vat = $cartTotal*0.21;
+            return number_format($vat, 2);
+        }
+
     }
  ?>

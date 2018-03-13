@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateReservationsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('reservations', function (Blueprint $table) {
@@ -24,12 +20,7 @@ class CreateReservationsTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
         Schema::dropIfExists('reservations');
